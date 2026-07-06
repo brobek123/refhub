@@ -45,6 +45,8 @@ export default function Offers() {
               />
               <a
                 href={offer.href}
+                target="_blank"
+                rel="sponsored noopener"
                 className="relative z-10 flex items-center gap-4 py-7 lg:gap-8 lg:px-6"
               >
                 <span className="w-8 shrink-0 font-sans text-xs tabular-nums text-muted/70">
