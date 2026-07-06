@@ -1,0 +1,21 @@
+ID;Aplikacja;Kategoria;Dostepnosc w PL;Bonus dla Ciebie (polecajacy);Bonus dla usera (polecany);Warunek odblokowania;Trudnosc;Siec / Zrodlo;Twoj link afiliacyjny;Krotki link REFHUB;ToS - publikacja na deal-site dozwolona?;Status programu;Priorytet (1-5);Data weryfikacji;Notatki
+1;Revolut;Bank/Cashback;TAK;do weryfikacji;do weryfikacji;rejestracja + platnosc karta / wplata;latwa;bezposredni (Revolut);;/go/revolut;SPRAWDZIC;sprawdzic;5;;Bardzo popularny w PL, duzy zasieg
+2;XTB;Broker/Inwestycje;TAK;do weryfikacji;do weryfikacji;otwarcie konta + wplata;srednia;bezposredni / Admitad;;/go/xtb;SPRAWDZIC;sprawdzic;5;;Polska firma, silna rozpoznawalnosc
+3;Trading 212;Broker/Inwestycje;TAK;darmowa akcja;darmowa akcja;rejestracja + mala wplata;latwa;bezposredni;;/go/trading212;SPRAWDZIC;sprawdzic;4;;Popularny referral 'darmowa akcja'
+4;Trade Republic;Broker/Inwestycje;TAK;do weryfikacji;do weryfikacji;rejestracja + wplata;srednia;bezposredni;;/go/traderepublic;SPRAWDZIC;sprawdzic;4;;Niemiecki broker, dostepny w PL
+5;Wise;Bank/Transfery;TAK;do weryfikacji;darmowy transfer;pierwszy przelew powyzej progu;srednia;bezposredni / Impact;;/go/wise;SPRAWDZIC;sprawdzic;3;;Dobry dla osob robiacych przelewy zagraniczne
+6;Freedom24;Broker/Inwestycje;TAK;do weryfikacji;akcje gratis;rejestracja + wplata;srednia;bezposredni;;/go/freedom24;SPRAWDZIC;sprawdzic;3;;Wysokie bonusy powitalne (akcje)
+7;Lightyear;Broker/Inwestycje;TAK;do weryfikacji;do weryfikacji;rejestracja + wplata;latwa;bezposredni;;/go/lightyear;SPRAWDZIC;sprawdzic;3;;Rosnaca popularnosc w Europie
+8;Bitvavo;Krypto;TAK;% z prowizji;brak/niski;handel powyzej progu;srednia;bezposredni;;/go/bitvavo;SPRAWDZIC;sprawdzic;3;;Popularna gielda krypto w EU
+9;Kraken;Krypto;TAK;do weryfikacji;do weryfikacji;handel powyzej progu;srednia;bezposredni;;/go/kraken;SPRAWDZIC;sprawdzic;2;;Renomowana gielda krypto
+10;Binance;Krypto;TAK;% z prowizji (revenue share);rabat na prowizje;handel;srednia;bezposredni;;/go/binance;SPRAWDZIC;sprawdzic;3;;Model revenue share, dlugoterminowy dochod
+11;eToro;Broker/Krypto;TAK;do weryfikacji;do weryfikacji;rejestracja + wplata;srednia;sieci CPA;;/go/etoro;SPRAWDZIC;sprawdzic;3;;Uwaga na regulacje reklamowe
+12;Zen.com;Bank/Cashback;TAK;do weryfikacji;do weryfikacji;rejestracja + platnosc;latwa;bezposredni;;/go/zen;SPRAWDZIC;sprawdzic;2;;Polski fintech
+13;Vivid Money;Bank/Inwestycje;CZESCIOWO;do weryfikacji;do weryfikacji;rejestracja + wplata;srednia;bezposredni;;/go/vivid;SPRAWDZIC;sprawdzic;2;;Sprawdzic pelna dostepnosc w PL
+14;Bunq;Bank;CZESCIOWO;do weryfikacji;do weryfikacji;rejestracja + subskrypcja;srednia;bezposredni;;/go/bunq;SPRAWDZIC;sprawdzic;2;;Holenderski bank, ograniczona dostepnosc
+15;Curve;Karty/Cashback;CZESCIOWO;do weryfikacji;do weryfikacji;rejestracja + platnosc karta;latwa;bezposredni;;/go/curve;SPRAWDZIC;sprawdzic;2;;Sprawdzic dostepnosc PL
+16;Robinhood;Broker/Inwestycje;NIE (US/UK);50 EUR (przyklad);darmowa akcja;rejestracja + wplata;-;bezposredni;;/go/robinhood;NIE DOTYCZY;niedostepny w PL;1;;UWAGA: niedostepny w Polsce - tylko przyklad z Twojego zapytania
+17;;;;;;;;;;;;;;;
+18;;;;;;;;;;;;;;;
+19;;;;;;;;;;;;;;;
+20;;;;;;;;;;;;;;;
