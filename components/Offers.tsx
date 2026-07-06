@@ -5,8 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { offers } from "@/lib/offers";
 
 const diffColor: Record<string, string> = {
-  Łatwa: "text-sage",
-  Średnia: "text-clay",
+  Łatwa: "text-mint",
+  Średnia: "text-violet",
   Trudna: "text-muted",
 };
 
@@ -14,91 +14,107 @@ export default function Offers() {
   const [active, setActive] = useState<string | null>(null);
 
   return (
-    <section id="oferty" className="mt-32 px-6 lg:px-16">
-      <div className="mb-10 flex items-baseline justify-between border-b border-line pb-5">
-        <h2 className="font-display text-3xl text-ink lg:text-4xl">Oferty</h2>
-        <span className="text-[11px] uppercase tracking-[0.2em] text-muted">
+    <section id="oferty" className="px-6 lg:px-10">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        className="mb-12 flex items-end justify-between border-b border-line pb-6"
+      >
+        <div>
+          <p className="text-[11px] uppercase tracking-[0.3em] text-muted">
+            Aktualne okazje
+          </p>
+          <h2 className="mt-2 font-display text-4xl text-fg lg:text-5xl">
+            Oferty
+          </h2>
+        </div>
+        <span className="rounded-full glass px-4 py-2 text-xs text-muted">
           {offers.length} aktywnych
         </span>
-      </div>
+      </motion.div>
 
-      <ul>
+      <div className="grid gap-4 md:grid-cols-2">
         {offers.map((offer, i) => {
           const isActive = active === offer.id;
+          const featured = i === 0;
+
           return (
-            <motion.li
+            <motion.article
               key={offer.id}
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 32 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.7, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }}
+              transition={{
+                duration: 0.7,
+                delay: i * 0.06,
+                ease: [0.22, 1, 0.36, 1],
+              }}
               onMouseEnter={() => setActive(offer.id)}
               onMouseLeave={() => setActive(null)}
-              className="group relative border-b border-line"
+              className={`group relative overflow-hidden rounded-3xl border border-line glass p-6 transition-all duration-500 hover:border-mint/30 hover:shadow-glow ${
+                featured ? "md:col-span-2 md:p-8" : ""
+              }`}
             >
-              {/* tło wjeżdżające przy hoverze */}
-              <motion.span
-                className="absolute inset-0 -z-0 origin-left bg-cream-deep"
-                initial={false}
-                animate={{ scaleX: isActive ? 1 : 0 }}
-                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-violet/10 via-transparent to-mint/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+
               <a
                 href={offer.href}
                 target="_blank"
                 rel="sponsored noopener"
-                className="relative z-10 flex items-center gap-4 py-7 lg:gap-8 lg:px-6"
+                className="relative z-10 flex h-full flex-col justify-between gap-8"
               >
-                <span className="w-8 shrink-0 font-sans text-xs tabular-nums text-muted/70">
-                  0{i + 1}
-                </span>
-
-                <div className="min-w-0 flex-1">
-                  <div className="flex items-center gap-3">
-                    <h3 className="font-display text-2xl text-ink transition-transform duration-500 ease-smooth group-hover:translate-x-1 lg:text-3xl">
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <p className="text-[10px] uppercase tracking-[0.2em] text-muted">
+                      {offer.category}
+                    </p>
+                    <h3
+                      className={`mt-2 font-display text-fg transition-transform duration-500 group-hover:translate-x-1 ${
+                        featured ? "text-4xl lg:text-5xl" : "text-3xl"
+                      }`}
+                    >
                       {offer.name}
                     </h3>
-                    <span
-                      className={`text-[10px] uppercase tracking-[0.15em] ${diffColor[offer.difficulty]}`}
-                    >
-                      {offer.difficulty}
-                    </span>
                   </div>
-                  <AnimatePresence>
-                    {isActive && (
-                      <motion.p
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                        className="overflow-hidden text-sm text-muted"
-                      >
-                        <span className="block pt-2">
-                          {offer.category} · {offer.requirement}
-                        </span>
-                      </motion.p>
-                    )}
-                  </AnimatePresence>
-                </div>
-
-                <div className="shrink-0 text-right">
-                  <span className="block font-display text-xl text-sage-deep lg:text-2xl">
-                    {offer.reward}
+                  <span
+                    className={`shrink-0 rounded-full glass px-3 py-1 text-[10px] uppercase tracking-[0.15em] ${diffColor[offer.difficulty]}`}
+                  >
+                    {offer.difficulty}
                   </span>
                 </div>
 
-                <span className="hidden shrink-0 text-ink transition-transform duration-500 ease-smooth group-hover:translate-x-1 sm:block">
-                  →
-                </span>
+                <div className="flex items-end justify-between gap-4">
+                  <div>
+                    <p className="text-xs text-muted">Bonus</p>
+                    <p className="font-display text-3xl grad-text">{offer.reward}</p>
+                  </div>
+                  <span className="flex h-11 w-11 items-center justify-center rounded-full border border-line text-fg transition-all duration-500 group-hover:border-mint group-hover:bg-mint group-hover:text-base">
+                    →
+                  </span>
+                </div>
+
+                <AnimatePresence>
+                  {isActive && (
+                    <motion.p
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      className="overflow-hidden text-sm text-muted"
+                    >
+                      {offer.requirement}
+                    </motion.p>
+                  )}
+                </AnimatePresence>
               </a>
-            </motion.li>
+            </motion.article>
           );
         })}
-      </ul>
+      </div>
 
-      <p className="mt-6 text-xs text-muted">
-        Kwoty bonusów są orientacyjne i mogą się zmieniać. Zawsze sprawdzaj
-        aktualne warunki u partnera.
+      <p className="mt-6 text-xs text-faint">
+        Kwoty bonusów są orientacyjne. Zawsze sprawdzaj aktualne warunki u partnera.
       </p>
     </section>
   );

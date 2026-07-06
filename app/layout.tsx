@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter } from "next/font/google";
+import { Space_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
 
-const display = Fraunces({
+const display = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-display",
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
+  weight: ["400", "500", "600", "700"],
 });
 
 const sans = Inter({
@@ -16,7 +15,7 @@ const sans = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "REFHUB — Promocje aplikacji fintech w jednym miejscu",
+  title: "REFHUB — Bonusy fintech w jednym miejscu",
   description:
     "Kuratorska lista najlepszych promocji polecających aplikacji fintech. Odbieraj bonusy za rejestrację. Codzienne okazje na stronie i w Telegramie.",
 };

@@ -2,7 +2,6 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import MagneticButton from "./MagneticButton";
 
 const TELEGRAM_URL = "https://t.me/refhub"; // TODO: podmień na docelowy kanał
 
@@ -12,61 +11,48 @@ export default function TelegramCTA() {
     target: ref,
     offset: ["start end", "end start"],
   });
-  const y = useTransform(scrollYProgress, [0, 1], ["12%", "-12%"]);
+  const y = useTransform(scrollYProgress, [0, 1], ["10%", "-10%"]);
 
   return (
-    <section id="telegram" className="mt-32 px-6 lg:px-16">
-      <div
+    <section id="telegram" className="px-6 lg:px-10">
+      <motion.div
         ref={ref}
-        className="relative overflow-hidden rounded-3xl bg-ink px-8 py-16 lg:px-16 lg:py-24"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        className="relative overflow-hidden rounded-[2rem] border border-line glass px-8 py-16 lg:px-16 lg:py-20"
       >
-        {/* stonowana, przesuwająca się poświata w tle */}
         <motion.div
           style={{ y }}
-          className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-sage/20 blur-3xl"
+          className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-violet/25 blur-3xl"
         />
         <motion.div
           style={{ y }}
-          className="pointer-events-none absolute -bottom-24 left-10 h-72 w-72 rounded-full bg-clay/10 blur-3xl"
+          className="pointer-events-none absolute -bottom-24 left-10 h-72 w-72 rounded-full bg-mint/15 blur-3xl"
         />
 
         <div className="relative max-w-2xl">
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="text-[11px] uppercase tracking-[0.3em] text-cream/50"
-          >
+          <p className="text-[11px] uppercase tracking-[0.3em] text-muted">
             Nie przegap żadnej okazji
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-4 font-display text-4xl leading-tight text-cream lg:text-6xl"
+          </p>
+          <h2 className="mt-4 font-display text-4xl leading-tight text-fg lg:text-6xl">
+            Nowe promocje{" "}
+            <span className="grad-text">codziennie</span> na Telegramie.
+          </h2>
+          <a
+            href={TELEGRAM_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="group mt-10 inline-flex items-center gap-3 rounded-full bg-mint px-8 py-4 text-sm font-semibold text-base transition-all duration-500 hover:shadow-glow"
           >
-            Nowe promocje <span className="italic text-sage">codziennie</span> na
-            Telegramie.
-          </motion.h2>
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-10"
-          >
-            <MagneticButton
-              href={TELEGRAM_URL}
-              className="inline-flex cursor-pointer items-center gap-3 rounded-full bg-cream px-8 py-4 text-sm font-medium text-ink transition-colors duration-500 hover:bg-sage hover:text-cream"
-            >
-              Dołącz do kanału
-              <span>→</span>
-            </MagneticButton>
-          </motion.div>
+            Dołącz do kanału
+            <span className="transition-transform duration-500 group-hover:translate-x-1">
+              →
+            </span>
+          </a>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

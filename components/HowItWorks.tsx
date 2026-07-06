@@ -6,51 +6,57 @@ const steps = [
   {
     n: "01",
     title: "Wybierz ofertę",
-    desc: "Przeglądasz kuratorską listę promocji. Każda z jasnym warunkiem i kwotą bonusu.",
+    desc: "Przeglądasz kuratorską listę promocji z jasnymi warunkami i kwotami.",
   },
   {
     n: "02",
-    title: "Kliknij i załóż konto",
-    desc: "Przechodzisz przez nasz link do aplikacji i rejestrujesz się w kilka minut.",
+    title: "Załóż konto",
+    desc: "Klikasz przez nasz link i rejestrujesz się w aplikacji w kilka minut.",
   },
   {
     n: "03",
     title: "Odbierz bonus",
-    desc: "Spełniasz prosty warunek (np. pierwsza wpłata) i bonus trafia na Twoje konto.",
+    desc: "Spełniasz prosty warunek i bonus trafia na Twoje konto.",
   },
 ];
 
 export default function HowItWorks() {
   return (
-    <section id="jak" className="mt-32 px-6 lg:px-16">
-      <div className="mb-12 flex items-baseline justify-between border-b border-line pb-5">
-        <h2 className="font-display text-3xl text-ink lg:text-4xl">
+    <section id="jak" className="px-6 lg:px-10">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        className="mb-12"
+      >
+        <p className="text-[11px] uppercase tracking-[0.3em] text-muted">
+          Proces
+        </p>
+        <h2 className="mt-2 font-display text-4xl text-fg lg:text-5xl">
           Jak to działa
         </h2>
-        <span className="text-[11px] uppercase tracking-[0.2em] text-muted">
-          3 kroki
-        </span>
-      </div>
+      </motion.div>
 
-      <div className="grid gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-3">
+      <div className="grid gap-4 lg:grid-cols-3">
         {steps.map((step, i) => (
           <motion.div
             key={step.n}
             initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.7, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
-            className="group relative flex flex-col justify-between gap-16 bg-cream p-8 transition-colors duration-500 hover:bg-cream-deep lg:p-10"
+            transition={{
+              duration: 0.7,
+              delay: i * 0.1,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="glass group rounded-3xl p-8 transition-all duration-500 hover:border-mint/20 hover:shadow-glow"
           >
-            <span className="font-display text-5xl text-line transition-colors duration-500 group-hover:text-sage/40">
+            <span className="font-display text-5xl text-line transition-colors duration-500 group-hover:text-mint/30">
               {step.n}
             </span>
-            <div>
-              <h3 className="font-display text-2xl text-ink">{step.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted">
-                {step.desc}
-              </p>
-            </div>
+            <h3 className="mt-10 font-display text-2xl text-fg">{step.title}</h3>
+            <p className="mt-3 text-sm leading-relaxed text-muted">{step.desc}</p>
           </motion.div>
         ))}
       </div>

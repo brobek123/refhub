@@ -10,7 +10,7 @@
 // ============================================================
 
 export const affiliateLinks: Record<string, string> = {
-  revolut: "https://www.revolut.com/?referral-code=krzyszwmvu!JUL1-26-AR-H2&geo-redirect", // TODO: wstaw swój link afiliacyjny
+  revolut: "https://www.revolut.com/", // TODO: wstaw swój link afiliacyjny
   xtb: "https://www.xtb.com/", // TODO: wstaw swój link afiliacyjny
   trading212: "https://www.trading212.com/", // TODO: wstaw swój link afiliacyjny
   traderepublic: "https://traderepublic.com/", // TODO: wstaw swój link afiliacyjny

@@ -11,31 +11,29 @@ const items = [
   "Bitvavo",
   "Freedom24",
   "Lightyear",
-  "Kraken",
 ];
 
 export default function Marquee() {
   const row = [...items, ...items];
   return (
-    <div className="relative overflow-hidden border-y border-line py-5">
+    <div className="relative overflow-hidden border-y border-line py-6">
       <motion.div
-        className="flex w-max gap-12 whitespace-nowrap"
+        className="flex w-max gap-14 whitespace-nowrap"
         animate={{ x: ["0%", "-50%"] }}
-        transition={{ duration: 28, ease: "linear", repeat: Infinity }}
+        transition={{ duration: 30, ease: "linear", repeat: Infinity }}
       >
         {row.map((item, i) => (
           <span
             key={i}
-            className="flex items-center gap-12 font-display text-lg text-muted"
+            className="flex items-center gap-14 font-display text-xl text-muted/80"
           >
             {item}
-            <span className="h-1 w-1 rounded-full bg-clay/60" />
+            <span className="h-1.5 w-1.5 rounded-full bg-mint/50" />
           </span>
         ))}
       </motion.div>
-      {/* miękkie wygaszenie krawędzi */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-cream to-transparent" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-cream to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-base to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-base to-transparent" />
     </div>
   );
 }
